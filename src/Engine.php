@@ -18,7 +18,8 @@ class Engine {
         $this->definitions = parse_ini_file($iniFilePath,false);
     }
 
-    public function serve($key) {
+    public function serve($params) {
+        $key = $params['key'];
         if (!isset($this->definitions[$key])) throw new UndefinedDefinitionException($key);
         $content = "";
         foreach (explode(" ",$this->definitions[$key]) as $filename) {
