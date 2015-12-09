@@ -1,0 +1,12 @@
+{
+  "name": "zvax/js-wrapper",
+  "autoload": {
+    "psr-4": {
+      "JSWrapper\\": "src/"
+    }
+  },
+  "require": {
+    "patricklouys/http": "1.2.0",
+    "zvax/storage": "dev-master"
+  }
+}
