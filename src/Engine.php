@@ -3,29 +3,25 @@
 namespace JSWrapper;
 
 use Http\Response;
-use JSWrapper\Exception\UndefinedDefinitionException;
-use Storage\Loader;
+use JSWrapper\Exceptions\UndefinedDefinitionException;
 
 class Engine {
 
     private $response;
-    private $loader;
+    private $wrapper;
     private $definitions = [];
 
-    public function __construct(Response $response,Loader $loader,$iniFilePath) {
+    public function __construct(Response $response,Wrapper $wrapper,$iniFilePath) {
         $this->response = $response;
-        $this->loader = $loader;
+        $this->wrapper = $wrapper;
         $this->definitions = parse_ini_file($iniFilePath,false);
     }
 
     public function serve($params) {
         $key = $params['key'];
         if (!isset($this->definitions[$key])) throw new UndefinedDefinitionException($key);
-        $content = "";
-        foreach (explode(" ",$this->definitions[$key]) as $filename) {
-            $content.= $this->loader->load($filename);
-        }
-        $this->response->setContent($content);
+        $filenames = explode(" ", $this->definitions[$key]);
+        $this->response->setContent($this->wrapper->wrap($filenames));
     }
 
 }
