@@ -1,12 +1,19 @@
 {
-  "name": "zvax/js-wrapper",
-  "autoload": {
-    "psr-4": {
-      "JSWrapper\\": "src/"
+    "name": "zvax/js-wrapper",
+    "autoload":
+    {
+        "psr-4":
+        {
+            "JSWrapper\\": "src/"
+        }
+    },
+    "require":
+    {
+        "patricklouys/http": "1.2.0",
+        "zvax/storage": "0.0.*"
+    },
+    "require-dev":
+    {
+        "phpunit/phpunit": "5.0.*"
     }
-  },
-  "require": {
-    "patricklouys/http": "1.2.0",
-    "zvax/storage": "0.0.2"
-  }
 }

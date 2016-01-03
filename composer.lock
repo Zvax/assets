@@ -1,0 +1,91 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "6e3f4411bf69f68d089bad46da4c0309",
+    "content-hash": "3ef0447d628d9fe14461dd692a475c72",
+    "packages": [
+        {
+            "name": "patricklouys/http",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PatrickLouys/http.git",
+                "reference": "a3f4b77a57a469aa9784c0059ebd30ab3284454f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PatrickLouys/http/zipball/a3f4b77a57a469aa9784c0059ebd30ab3284454f",
+                "reference": "a3f4b77a57a469aa9784c0059ebd30ab3284454f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.0.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Http\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Patrick Louys",
+                    "email": "patrick@louys.ch",
+                    "role": "Creator / Main Developer"
+                }
+            ],
+            "description": "HTTP Component",
+            "keywords": [
+                "http",
+                "request",
+                "response"
+            ],
+            "time": "2015-02-01 21:52:53"
+        },
+        {
+            "name": "zvax/storage",
+            "version": "0.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Zvax/storage.git",
+                "reference": "603dcfa036d80f14142b3b310dcb000524ef916d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Zvax/storage/zipball/603dcfa036d80f14142b3b310dcb000524ef916d",
+                "reference": "603dcfa036d80f14142b3b310dcb000524ef916d",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Storage\\": "src/",
+                    "Tests\\": "tests/src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "time": "2015-12-15 23:22:36"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
