@@ -15,18 +15,14 @@ class WrappingTest extends PHPUnit_Framework_TestCase
         $engine = new \JSWrapper\Engine($response,$this->makeWrapper(),__DIR__."/test.ini");
         $this->assertInstanceOf("\\JSWrapper\\Engine",$engine);
 
-        $engine->serve([
-            'key' => 'default',
-        ]);
+        $engine->serve('default');
 
         $jsString = $response->getContent();
         $this->assertContains("testJsFunction",$jsString);
 
         $this->setExpectedException("\\JSWrapper\\Exceptions\\UndefinedDefinitionException");
 
-        $engine->serve([
-            'key' => 'not-existant',
-        ]);
+        $engine->serve('not-existant');
     }
 
     public function testWrapping()

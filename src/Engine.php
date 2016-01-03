@@ -17,8 +17,7 @@ class Engine {
         $this->definitions = parse_ini_file($iniFilePath,false);
     }
 
-    public function serve($params) {
-        $key = $params['key'];
+    public function serve($key) {
         if (!isset($this->definitions[$key])) throw new UndefinedDefinitionException($key);
         $filenames = explode(" ", $this->definitions[$key]);
         $this->response->setContent($this->wrapper->wrap($filenames));
