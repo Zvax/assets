@@ -3,17 +3,10 @@
 namespace Tests;
 
 use Assets\Engine;
-use Assets\Wrapper;
 use Storage\FileLoader;
 
 class WrappingTest extends \PHPUnit_Framework_TestCase
 {
-
-    private function makeWrapper()
-    {
-        $loader = new FileLoader(__DIR__."/testjs","js");
-        return new Wrapper($loader);
-    }
 
     public function testSimpleAsset()
     {
