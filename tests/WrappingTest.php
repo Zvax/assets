@@ -1,33 +1,46 @@
 <?php
 
-class WrappingTest extends PHPUnit_Framework_TestCase
+namespace Tests;
+
+use AssetsWrapper\Engine;
+use AssetsWrapper\Wrapper;
+use Http\HttpResponse;
+use Storage\FileLoader;
+
+class WrappingTest extends \PHPUnit_Framework_TestCase
 {
 
     private function makeWrapper()
     {
-        $loader = new \Storage\FileLoader(__DIR__."/testjs","js");
-        return new \JSWrapper\Wrapper($loader);
+        $loader = new FileLoader(__DIR__."/testjs","js");
+        return new Wrapper($loader);
     }
 
     public function testBase()
     {
-        $response = new \Http\HttpResponse();
-        $engine = new \JSWrapper\Engine($response,$this->makeWrapper(),__DIR__."/test.ini");
-        $this->assertInstanceOf("\\JSWrapper\\Engine",$engine);
+        $response = new HttpResponse();
+        $engine = new Engine($response,$this->makeWrapper(),__DIR__."/test.ini");
+        $this->assertInstanceOf("\\AssetsWrapper\\Engine",$engine);
 
         $engine->serve('default');
 
         $jsString = $response->getContent();
         $this->assertContains("testJsFunction",$jsString);
+    }
 
-        $this->setExpectedException("\\JSWrapper\\Exceptions\\UndefinedDefinitionException");
-
+    /**
+     * @expectedException AssetsWrapper\Exceptions\UndefinedDefinitionException
+     */
+    public function testException()
+    {
+        $response = new HttpResponse();
+        $engine = new Engine($response,$this->makeWrapper(),__DIR__."/test.ini");
         $engine->serve('not-existant');
     }
 
     public function testWrapping()
     {
-        /** @var \JSWrapper\Wrapper $wrapper */
+        /** @var Wrapper $wrapper */
         $wrapper = $this->makeWrapper();
 
         $defaultJs = $wrapper->wrap(['base']);

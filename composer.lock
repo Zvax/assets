@@ -1,11 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e87690328cfc2770ef9548fe2aee4c87",
-    "content-hash": "7ec4140187a91315a2adee7d35a11e48",
+    "hash": "7827fee3fd06a863b47d336adaaf6620",
     "packages": [
         {
             "name": "patricklouys/http",
@@ -54,16 +53,16 @@
         },
         {
             "name": "zvax/storage",
-            "version": "0.0.6",
+            "version": "0.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Zvax/storage.git",
-                "reference": "603dcfa036d80f14142b3b310dcb000524ef916d"
+                "reference": "20e20cc3dcd80976af6ad7d32d3c92b44e4021cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Zvax/storage/zipball/603dcfa036d80f14142b3b310dcb000524ef916d",
-                "reference": "603dcfa036d80f14142b3b310dcb000524ef916d",
+                "url": "https://api.github.com/repos/Zvax/storage/zipball/20e20cc3dcd80976af6ad7d32d3c92b44e4021cc",
+                "reference": "20e20cc3dcd80976af6ad7d32d3c92b44e4021cc",
                 "shasum": ""
             },
             "require-dev": {
@@ -77,7 +76,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2015-12-15 23:22:36"
+            "time": "2016-01-09 00:19:43"
         }
     ],
     "packages-dev": [
@@ -288,16 +287,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "3.0.2",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "f7bb5cddf4ffe113eeb737b05241adb947b43f9d"
+                "reference": "64d40a593fc31a8abf4ce3d200147ddf8ca64e52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/f7bb5cddf4ffe113eeb737b05241adb947b43f9d",
-                "reference": "f7bb5cddf4ffe113eeb737b05241adb947b43f9d",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/64d40a593fc31a8abf4ce3d200147ddf8ca64e52",
+                "reference": "64d40a593fc31a8abf4ce3d200147ddf8ca64e52",
                 "shasum": ""
             },
             "require": {
@@ -320,7 +319,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0.x-dev"
+                    "dev-master": "3.1.x-dev"
                 }
             },
             "autoload": {
@@ -346,7 +345,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-11-12 21:08:20"
+            "time": "2016-01-11 10:05:34"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -532,12 +531,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "61ea97f7467086b65efd26cf924c4a7ca0fbb2a6"
+                "reference": "e437d4ac485b54eca3364b2eff4c22dac20c4c29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/61ea97f7467086b65efd26cf924c4a7ca0fbb2a6",
-                "reference": "61ea97f7467086b65efd26cf924c4a7ca0fbb2a6",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e437d4ac485b54eca3364b2eff4c22dac20c4c29",
+                "reference": "e437d4ac485b54eca3364b2eff4c22dac20c4c29",
                 "shasum": ""
             },
             "require": {
@@ -549,7 +548,7 @@
                 "myclabs/deep-copy": "~1.3",
                 "php": ">=5.6",
                 "phpspec/prophecy": "^1.3.1",
-                "phpunit/php-code-coverage": "~3.0",
+                "phpunit/php-code-coverage": "~3.1",
                 "phpunit/php-file-iterator": "~1.4",
                 "phpunit/php-text-template": "~1.2",
                 "phpunit/php-timer": ">=1.0.6",
@@ -598,7 +597,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-12-17 14:44:35"
+            "time": "2016-01-12 11:29:55"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

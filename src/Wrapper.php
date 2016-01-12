@@ -1,7 +1,7 @@
 <?php
 
 
-namespace JSWrapper;
+namespace AssetsWrapper;
 
 use Storage\Loader;
 

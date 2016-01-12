@@ -1,10 +1,10 @@
 {
-    "name": "zvax/js-wrapper",
+    "name": "zvax/assets-wrapper",
     "autoload":
     {
         "psr-4":
         {
-            "JSWrapper\\": "src/"
+            "AssetsWrapper\\": "src/"
         }
     },
     "require":

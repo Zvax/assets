@@ -1,6 +1,6 @@
 <?php
 
-namespace JSWrapper\Exceptions;
+namespace AssetsWrapper\Exceptions;
 
 use Exception;
 

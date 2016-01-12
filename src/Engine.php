@@ -1,9 +1,9 @@
 <?php
 
-namespace JSWrapper;
+namespace AssetsWrapper;
 
+use AssetsWrapper\Exceptions\UndefinedDefinitionException;
 use Http\Response;
-use JSWrapper\Exceptions\UndefinedDefinitionException;
 
 class Engine {
 
