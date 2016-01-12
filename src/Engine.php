@@ -2,14 +2,12 @@
 
 namespace Assets;
 
-use Assets\Exceptions\UndefinedDefinitionException;
-use Http\Response;
+use Assets\Exceptions\UndefinedAssetException;
+use Storage\Loader;
 
 class Engine {
 
-    private $response;
-    private $wrapper;
-    private $definitions = [];
+    private $assets = [];
 
     /**
      *
@@ -24,18 +22,54 @@ class Engine {
      * the Assets can also wrap multiple specific assets through the use of an ini file
      * mapping a specific asset identifier to multiple different files from the folder path
      *
+     *
+     *
      */
 
-    public function __construct(Response $response,Wrapper $wrapper,$iniFilePath) {
-        $this->response = $response;
-        $this->wrapper = $wrapper;
-        $this->definitions = parse_ini_file($iniFilePath,false);
+
+
+    /**
+     * @param string $identifier
+     * @param Loader $loader
+     */
+
+    public function addSimpleAsset($identifier,Loader $loader)
+    {
+        $this->assets[$identifier] = new SimpleAsset($loader);
     }
 
-    public function serve($key) {
-        if (!isset($this->definitions[$key])) throw new UndefinedDefinitionException($key);
-        $filenames = explode(" ", $this->definitions[$key]);
-        $this->response->setContent($this->wrapper->wrap($filenames));
+
+
+    /**
+     * @param string $identifier
+     * @param array $map
+     * @param Loader $loader
+     */
+
+    public function addCompositeAsset($identifier,array $map,Loader $loader)
+    {
+        $wrapper = new Wrapper($loader);
+        $assetsMap = new AssetsMap($map);
+        $this->assets[$identifier] = new CompositeAsset($wrapper, $assetsMap);
+    }
+
+    /**
+     * @param string $identifier
+     * @param string $key
+     * @return string
+     * @throws UndefinedAssetException
+     */
+    public function serve($identifier, $key) {
+
+        if (!isset($this->assets[$identifier]))
+        {
+            throw new UndefinedAssetException($identifier);
+        }
+
+        /** @var Asset $asset */
+        $asset = $this->assets[$identifier];
+        return $asset->get($key);
+
     }
 
 }

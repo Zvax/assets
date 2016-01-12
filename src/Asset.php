@@ -2,7 +2,7 @@
 
 namespace Assets;
 
-interface Assets
+interface Asset
 {
     public function get($what);
 }
