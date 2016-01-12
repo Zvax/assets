@@ -4,7 +4,7 @@ namespace Assets;
 
 use Storage\Loader;
 
-class SimpleAsset implements Assets
+class SimpleAsset implements Asset
 {
     private $loader;
 

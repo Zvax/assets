@@ -4,7 +4,6 @@ namespace Tests;
 
 use Assets\Engine;
 use Assets\Wrapper;
-use Http\HttpResponse;
 use Storage\FileLoader;
 
 class WrappingTest extends \PHPUnit_Framework_TestCase
@@ -16,40 +15,45 @@ class WrappingTest extends \PHPUnit_Framework_TestCase
         return new Wrapper($loader);
     }
 
-    public function testBase()
+    public function testSimpleAsset()
     {
-        $response = new HttpResponse();
-        $engine = new Engine($response,$this->makeWrapper(),__DIR__."/test.ini");
-        $this->assertInstanceOf("\\Assets\\Engine",$engine);
+        $engine = new Engine();
+        $engine->addSimpleAsset('javascript', new FileLoader(__DIR__.'/testjs', 'js'));
 
-        $engine->serve('default');
+        $jsString = $engine->serve('javascript', 'base');
+        $this->assertInternalType('string', $jsString);
 
-        $jsString = $response->getContent();
         $this->assertContains("testJsFunction",$jsString);
     }
 
     /**
-     * @expectedException \Assets\Exceptions\UndefinedDefinitionException
+     * @expectedException \Assets\Exceptions\UndefinedAssetException
      */
     public function testException()
     {
-        $response = new HttpResponse();
-        $engine = new Engine($response,$this->makeWrapper(),__DIR__."/test.ini");
-        $engine->serve('not-existant');
+        $engine = new Engine();
+        $engine->serve('javascript', 'base');
+
+        $engine->addSimpleAsset('javascript', new FileLoader(__DIR__.'/testjs', 'js'));
+
     }
 
-    public function testWrapping()
+    public function testCompositeAsset()
     {
-        /** @var Wrapper $wrapper */
-        $wrapper = $this->makeWrapper();
+        $engine = new Engine();
+        $map = [
+            'default' => [
+                'base',
+                'base2',
+            ],
+        ];
+        $engine->addCompositeAsset('javascript',$map,new FileLoader(__DIR__.'/testjs', 'js'));
 
-        $defaultJs = $wrapper->wrap(['base']);
-        $this->assertContains("testJsFunction",$defaultJs);
+        $jsString = $engine->serve('javascript', 'default');
+        $this->assertInternalType('string', $jsString);
 
-        $defaultJs = $wrapper->wrap(['base','base2']);
-        $this->assertContains("testJsFunction",$defaultJs);
-        $this->assertContains("testFunctionSecondFile",$defaultJs);
-
+        $this->assertContains("testJsFunction",$jsString);
+        $this->assertContains("testFunctionSecondFile",$jsString);
     }
 
 }

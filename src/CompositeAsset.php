@@ -2,7 +2,7 @@
 
 namespace Assets;
 
-class CompositeAsset implements Assets
+class CompositeAsset implements Asset
 {
     private $wrapper;
     private $map;
