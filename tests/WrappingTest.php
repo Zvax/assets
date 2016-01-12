@@ -2,8 +2,8 @@
 
 namespace Tests;
 
-use AssetsWrapper\Engine;
-use AssetsWrapper\Wrapper;
+use Assets\Engine;
+use Assets\Wrapper;
 use Http\HttpResponse;
 use Storage\FileLoader;
 
@@ -20,7 +20,7 @@ class WrappingTest extends \PHPUnit_Framework_TestCase
     {
         $response = new HttpResponse();
         $engine = new Engine($response,$this->makeWrapper(),__DIR__."/test.ini");
-        $this->assertInstanceOf("\\AssetsWrapper\\Engine",$engine);
+        $this->assertInstanceOf("\\Assets\\Engine",$engine);
 
         $engine->serve('default');
 
@@ -29,7 +29,7 @@ class WrappingTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException AssetsWrapper\Exceptions\UndefinedDefinitionException
+     * @expectedException \Assets\Exceptions\UndefinedDefinitionException
      */
     public function testException()
     {
