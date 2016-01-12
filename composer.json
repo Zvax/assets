@@ -1,5 +1,5 @@
 {
-    "name": "zvax/assets-wrapper",
+    "name": "zvax/assets",
     "autoload":
     {
         "psr-4":
