@@ -1,11 +1,21 @@
-#js-wrapper
+#Assets
 
-give the absolute path to a .ini file containing the definitions for the various javascripts needed:
+simple assets wrapper
 
-```[js-wrapper]
-default = base
-specific = base specific
+this exemple would serve the wrapped content of both base and base2 files located in the /testjs folder
+
+```php
+function testCompositeAsset()
+    {
+        $engine = new Assets\Engine();
+        $map = [
+            'default' => [
+                'base',
+                'base2',
+            ],
+        ];
+        $engine->addCompositeAsset('javascript',$map,new Storage\FileLoader(__DIR__.'/testjs', 'js'));
+
+        $js = $engine->serve('javascript', 'default');
+    }
 ```
-
-as well as an absolute path to your js library
-
